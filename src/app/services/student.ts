@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StudentService {
-
   private apiUrl = 'https://jsonplaceholder.typicode.com/users';
 
   constructor(private http: HttpClient) {}
@@ -17,4 +16,5 @@ export class StudentService {
   getStudentById(id: number) {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
+ 
 }

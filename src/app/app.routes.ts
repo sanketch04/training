@@ -36,6 +36,10 @@ export const routes: Routes = [
   { path: 'day7', component: MaterialForm },
   { path: 'day8', component: EmployeeParent },
   {
+    path: 'day9',
+    component: Login,
+  },
+  {
     path: 'admin',
     loadComponent: () => import('./components/admin/admin').then((m) => m.Admin), //lazy loading of admin component
     canActivate: [authGuard], //protecting the admin route with authGuard

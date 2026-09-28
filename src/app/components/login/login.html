@@ -1,11 +1,32 @@
 <div class="login-container">
-
   <h2>Login</h2>
 
-  <p>You are not logged in.</p>
+  <form (ngSubmit)="login()">
+    <div class="form-group">
+      <label> Username </label>
 
-  <button (click)="login()">
-    Login
-  </button>
+      <input type="text" name="username" [(ngModel)]="username" placeholder="Enter username" />
+    </div>
 
+    <div class="form-group">
+      <label> Password </label>
+
+      <input type="password" name="password" [(ngModel)]="password" placeholder="Enter password" />
+    </div>
+
+    @if (errorMessage) {
+      <p class="error">
+        {{ errorMessage }}
+      </p>
+    }
+
+    <button type="submit" [disabled]="loading">
+      @if (loading) {
+        Logging in...
+      } @else {
+        Login
+      }
+    </button>
+  </form>
 </div>
+<button type="button" (click)="getProfile()">Get Current User</button>
