@@ -12,6 +12,9 @@ import { Login } from './components/login/login';
 import { TemplateForm } from './components/template-form/template-form';
 import { ReactiveForm } from './components/reactive-form/reactive-form';
 import { TaskList } from './components/task-list/task-list';
+import { MaterialForm } from './components/material-form/material-form';
+import { EmployeeCard } from './components/employee-card/employee-card';
+import { EmployeeParent } from './components/employee-parent/employee-parent';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -30,6 +33,8 @@ export const routes: Routes = [
   { path: 'day5', component: TemplateForm },
   { path: 'day5RF', component: ReactiveForm },
   { path: 'day6', component: TaskList },
+  { path: 'day7', component: MaterialForm },
+  { path: 'day8', component: EmployeeParent },
   {
     path: 'admin',
     loadComponent: () => import('./components/admin/admin').then((m) => m.Admin), //lazy loading of admin component

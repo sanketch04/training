@@ -1,0 +1,20 @@
+<div class="employee-card">
+  <h3>{{ employee.name }}</h3>
+
+  <p>
+    <strong>ID:</strong>
+    {{ employee.id }}
+  </p>
+
+  <p>
+    <strong>Role:</strong>
+    {{ employee.role }}
+  </p>
+
+  <p>
+    <strong>Department:</strong>
+    {{ employee.department }}
+  </p>
+
+  <button type="button" (click)="delete()">Delete</button>
+</div>

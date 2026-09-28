@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { addTask, deleteTask, toggleTask, loadTasks } from '../../store/task.actions';
@@ -11,6 +11,7 @@ import { AsyncPipe } from '@angular/common';
   imports: [AsyncPipe],
   templateUrl: './task-list.html',
   styleUrl: './task-list.css',
+   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskList {
   private store = inject(Store);

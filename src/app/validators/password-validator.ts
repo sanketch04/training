@@ -1,9 +1,6 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
-export function strongPasswordValidator(
-  control: AbstractControl
-): ValidationErrors | null {
-
+export function strongPasswordValidator(control: AbstractControl): ValidationErrors | null {
   const password = control.value;
 
   if (!password) {
@@ -15,16 +12,11 @@ export function strongPasswordValidator(
   const hasSpecialCharacter = /[!@#$%^&*]/.test(password);
   const hasMinimumLength = password.length >= 8;
 
-  if (
-    hasUppercase &&
-    hasNumber &&
-    hasSpecialCharacter &&
-    hasMinimumLength
-  ) {
+  if (hasUppercase && hasNumber && hasSpecialCharacter && hasMinimumLength) {
     return null;
   }
 
   return {
-    strongPassword: true
+    strongPassword: true,
   };
 }

@@ -1,0 +1,76 @@
+<div class="form-container">
+  <h2>Registration Form</h2>
+
+  <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+    <!-- Name -->
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+
+      <input matInput formControlName="name" placeholder="Enter your name" />
+
+      @if (
+        registrationForm.get('name')?.hasError('required') && registrationForm.get('name')?.touched
+      ) {
+        <mat-error> Name is required </mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Email -->
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+
+      <input matInput type="email" formControlName="email" placeholder="Enter your email" />
+
+      @if (
+        registrationForm.get('email')?.hasError('required') &&
+        registrationForm.get('email')?.touched
+      ) {
+        <mat-error> Email is required </mat-error>
+      }
+
+      @if (
+        registrationForm.get('email')?.hasError('email') && registrationForm.get('email')?.touched
+      ) {
+        <mat-error> Enter a valid email </mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Password -->
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+
+      <input matInput type="password" formControlName="password" placeholder="Enter password" />
+
+      @if (registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched) {
+        <mat-error> Password must contain at least 8 characters </mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Department -->
+
+    <mat-form-field appearance="outline">
+      <mat-label>Department</mat-label>
+
+      <mat-select formControlName="department">
+        <mat-option value="IT"> IT </mat-option>
+
+        <mat-option value="HR"> HR </mat-option>
+
+        <mat-option value="Finance"> Finance </mat-option>
+      </mat-select>
+
+      @if (
+        registrationForm.get('department')?.invalid && registrationForm.get('department')?.touched
+      ) {
+        <mat-error> Select a department </mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Submit -->
+
+    <button mat-raised-button type="submit" [disabled]="registrationForm.invalid">Register</button>
+  </form>
+</div>
