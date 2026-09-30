@@ -5,7 +5,7 @@ import { StudentService } from '../../services/student';
 
 @Component({
   selector: 'app-student-details',
-  imports: [NgIf],
+  imports: [],
   templateUrl: './student-details.html',
   styleUrl: './student-details.css'
 })
